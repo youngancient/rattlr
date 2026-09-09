@@ -1,0 +1,26 @@
+artifact/
+
+# dependencies
+node_modules/
+
+# build output (generic, shared across all TS packages)
+dist/
+*.tsbuildinfo
+
+# env
+.env
+.env.*.local
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor / OS
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+.claude

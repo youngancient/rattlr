@@ -92,6 +92,25 @@ See [`.env.example`](./.env.example) for the full list. At a glance:
 | `TELEGRAM_BOT_TOKEN`, `DISCORD_BOT_TOKEN` | bot | Bot credentials for alert delivery. |
 | `NEXT_PUBLIC_API_URL` | dashboard | Where the dashboard fetches data from. |
 
+## Documentation
+
+Full docs live in [`docs/`](./docs/README.md):
+
+- [Architecture](./docs/architecture.md) — components, end-to-end data flow, and how to
+  add a second protocol integration.
+- [Known limitations](./docs/known-limitations.md) — what Rattlr does not and cannot do.
+- [Security and threat model](./docs/security-threat-model.md) — trust boundaries and
+  the pre-mainnet checklist.
+- [Developer guide](./docs/developer-guide.md) — local setup and the `ProtocolAdapter`
+  pattern for adding a new protocol.
+- [Testnet deployment record](./docs/testnet-deployment.md) and
+  [mainnet deployment record](./docs/mainnet-deployment.md) — deployment evidence,
+  filled in as each milestone ships.
+- [Demo guide](./docs/demo.md) and [reproduction guide](./docs/reproducibility.md) —
+  the Milestone 1 demo-video script and the independent verification procedure.
+- [Milestones](./docs/milestones.md) and [usage metrics](./docs/usage-metrics.md) —
+  grant deliverables and the tracked evidence record against them.
+
 ## Roadmap
 
 1. **Testnet dashboard + alert bot** — indexer and dashboard against Zest testnet, working

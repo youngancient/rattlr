@@ -100,8 +100,8 @@ See usage-metrics.md — Mainnet Position Log
 - [ ] `ZEST_CONTRACT_ADDRESS` / `ZEST_CONTRACT_NAME` point at mainnet
 - [ ] indexer polling confirmed against mainnet RPC
 - [ ] dashboard live URL reachable without login, showing real mainnet data
-- [ ] subscription flow (`POST /subscriptions`, `PATCH /subscriptions/:id`) verified
-      against mainnet-tracked wallets
+- [ ] wallet-signature auth and subscription flow (`POST /subscriptions`,
+      `PATCH /subscriptions/:id`, chat linking) verified against mainnet-tracked wallets
 - [ ] bot tokens confirmed production (not shared with testnet deployment)
 - [ ] self-funded mainnet position open and actively tracked
 - [ ] at least one real mainnet alert fired and logged (see usage-metrics.md)

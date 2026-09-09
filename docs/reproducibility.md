@@ -7,7 +7,9 @@ independent-reproduction evidence referenced in Milestone 2 and 3.
 ## Prerequisites
 
 - a Stacks wallet with an open position on Zest (testnet for early verification, mainnet
-  once Milestone 2 is live)
+  once Milestone 2 is live) — the position being tracked
+- a Stacks wallet to connect and sign with for subscription management (can be the same
+  wallet as above, or a different one — Rattlr doesn't require them to match)
 - a Telegram or Discord account
 - access to the live Rattlr dashboard URL
 
@@ -42,26 +44,37 @@ TODO
 
 ## Subscribe and Receive a Real Alert
 
-1. Message the Telegram or Discord bot.
-2. Provide your wallet address and a threshold above your position's current health
-   factor, so it will trigger on the next real change (or use a testnet position you can
-   deliberately move).
-3. Wait for a poll cycle (target ≤60s after the threshold-crossing transaction confirms).
-4. Confirm you receive a private alert message in the chat you subscribed from — not a
-   shared public channel.
-5. Update your threshold via the bot and confirm it applies without needing to
-   re-subscribe.
+1. On the dashboard, connect a wallet and sign the authentication message.
+2. Enter the tracked wallet address and a threshold above its current health factor, so
+   it will trigger on the next real change (or use a testnet position you can
+   deliberately move). Submit.
+3. Follow the returned Telegram deep link or Discord `/link <code>`, and confirm in the
+   bot to activate the subscription.
+4. Wait for a poll cycle (target ≤60s after the threshold-crossing transaction confirms).
+5. Confirm you receive a private alert message in the linked chat — not a shared public
+   channel.
+6. Update your threshold either via `/threshold` in the linked chat, or by reconnecting
+   your wallet on the dashboard and editing it from the "my alerts" view. Confirm it
+   applies without needing to re-link the chat.
+7. Reconnect the same management wallet from a different browser/device and confirm the
+   same subscription is visible there too.
 
 ## Verification Checklist
 
 - [ ] dashboard-displayed health factor matches an independent read-only contract call
 - [ ] wallet lookup works for a wallet not previously looked up by the tester
-- [ ] no login or wallet connection was required to view dashboard data
-- [ ] subscription created successfully via Telegram or Discord
+- [ ] no login or wallet connection was required to view dashboard data or look up a
+      position — only to create or manage a subscription
+- [ ] subscription creation required a wallet signature, not just a form submission
+- [ ] the tracked wallet and the signing (management) wallet were deliberately different,
+      and tracking still worked
+- [ ] chat linking (deep link / `/link <code>`) succeeded and activated the subscription
 - [ ] alert received matches the actual threshold-crossing event (correct wallet,
       correct health factor, plausible timestamp relative to the on-chain transaction)
-- [ ] alert was private to the subscribing chat, not posted publicly
-- [ ] threshold update applied without needing to re-subscribe
+- [ ] alert was private to the linked chat, not posted publicly
+- [ ] threshold update applied without needing to re-link the chat
+- [ ] the subscription was recoverable by reconnecting the same wallet from a different
+      device/browser
 
 ## Tester Evidence
 

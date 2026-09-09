@@ -13,6 +13,8 @@ or verify the system.
   stated explicitly.
 - [Security and threat model](./security-threat-model.md) — trust boundaries, the
   subscription-ownership authorization path, and the pre-mainnet checklist.
+- [Open issues](./issues.md) — decisions and specs not yet resolved in the PRD, tracked
+  until each is settled and folded back into the relevant doc.
 
 ## Build, operate, and reproduce
 

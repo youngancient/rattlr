@@ -98,10 +98,12 @@ See [`usage-metrics.md`](./usage-metrics.md) for the full testnet alert log.
 
 - [ ] indexer polling against testnet RPC, 60s interval confirmed
 - [ ] `ZEST_CONTRACT_ADDRESS` / `ZEST_CONTRACT_NAME` point at testnet, not mainnet
-- [ ] dashboard live URL reachable without login
+- [ ] dashboard live URL reachable without login for viewing/lookup
 - [ ] aggregate stats endpoint returns real (non-zero) data
 - [ ] wallet lookup returns real position data for a tracked wallet
-- [ ] Telegram bot responds and accepts a subscription
-- [ ] Discord bot responds and accepts a subscription
+- [ ] wallet-signature auth required before `POST /subscriptions` succeeds
+- [ ] Telegram deep link lands in the bot and activates a pending subscription on confirm
+- [ ] Discord `/link <code>` activates a pending subscription on confirm
 - [ ] threshold crossing triggers a real alert in both channels
-- [ ] `PATCH /subscriptions/:id` updates a threshold without re-subscribing
+- [ ] `/threshold` in a linked chat and `PATCH /subscriptions/:id` from the dashboard
+      both update a threshold without re-linking

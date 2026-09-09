@@ -76,10 +76,17 @@ that poll cycle from running. Keep this invariant when touching the poll loop.
 
 ## Subscription Ownership
 
-`PATCH /subscriptions/:id` must verify the request comes from the same chat that owns the
-subscription before applying a threshold change (see
+Creating or editing a subscription (`POST /subscriptions`, `PATCH /subscriptions/:id`)
+requires a valid signature from the owning wallet — not browser storage, and not
+knowledge of the tracked wallet address (see
 [`security-threat-model.md`](./security-threat-model.md) §4). This is the one
-authorization-sensitive path in an otherwise read-only, unauthenticated system.
+authorization-sensitive path in an otherwise unauthenticated, read-only system; every
+other route (position lookup, aggregate stats) stays open.
+
+Chat linking (a Telegram deep link or a Discord `/link <code>`) is a separate, narrower
+credential: it only ties a chat to a pending subscription, it does not grant management
+rights over that subscription. Keep those two checks distinct when touching this code —
+don't let a valid link code substitute for a valid subscription-management signature.
 
 ## Contributing
 

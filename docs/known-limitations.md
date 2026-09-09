@@ -46,6 +46,13 @@ The indexer, API, and bot each run as a single process with no redundancy or fai
 during Milestones 1–2. An instance crash or restart is a temporary gap in monitoring
 until it recovers.
 
+## Managing an Alert Requires a Wallet
+Viewing the dashboard and looking up a position never requires a wallet. Creating or
+editing an alert subscription does — a user without a Leather/Xverse wallet available
+cannot set up or change an alert, even to track a wallet that isn't their own. This cuts
+against the "passive borrower who forgets about the loan" persona in the PRD's target
+users, who still has to complete a wallet-connect-and-sign step once at setup.
+
 ## Zest's Bitcoin Collateral Vaults Are Out of Scope
 Zest's newer product, where BTC is held on L1 and borrowing happens on EVM chains, is
 architecturally different from its existing Stacks lending market and is not tracked by

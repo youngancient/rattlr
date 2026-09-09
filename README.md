@@ -53,8 +53,14 @@ rattlr/
 
 ## Design decisions
 
-- **Alert thresholds are adjustable at any time**, without re-subscribing (`PATCH /subscriptions/:id`
-  in `@rattlr/api`, reconfirmed via the same chat that created the subscription).
+- **Alert thresholds are adjustable at any time**, without re-subscribing — either with a
+  `/threshold` command in the linked Telegram/Discord chat, or from the dashboard's "my
+  alerts" view (`PATCH /subscriptions/:id` in `@rattlr/api`).
+- **Subscription management is gated by wallet-signature auth, not login/passwords.**
+  Connecting a wallet (Leather/Xverse) and signing a message is required only to create or
+  edit an alert. Viewing the dashboard and looking up any position never requires it. The
+  signing wallet doesn't have to be the wallet being tracked — it only identifies who
+  manages the subscription, so tracking itself is never gated behind proof of ownership.
 - **The dashboard is lookup-only.** It shows aggregate stats (total tracked positions,
   protocols covered, uptime) by default, and lets anyone look up one wallet's position by
   address — position data is already public on-chain — but never enumerates or browses all

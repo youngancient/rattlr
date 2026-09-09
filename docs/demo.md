@@ -16,7 +16,9 @@ Show:
 
 1. Have a real Zest testnet position already open under a wallet Rattlr is tracking.
 2. Have the dashboard deployed and reachable at a live URL.
-3. Have the Telegram and/or Discord bot already subscribed to that wallet with a known
+3. Have a demo Stacks wallet (Leather/Xverse) ready to connect and sign with — this is the
+   wallet that will *manage* the alert, separate from the position wallet being tracked.
+4. Have the Telegram and/or Discord bot already linked to that subscription with a known
    threshold (e.g., health factor below 1.2).
 4. Have a way to push the position closer to liquidation on testnet (e.g., a further
    borrow, or a simulated price move) queued and ready.
@@ -31,10 +33,14 @@ Show, live at the public URL, not a local screenshot:
 
 ## Subscription Walkthrough
 
-Show, briefly:
+Show, briefly, starting on the dashboard:
 
-- the Telegram or Discord bot's subscribe flow (wallet address + threshold)
-- confirmation that the subscription was created
+- connect a wallet and sign the authentication message (make clear on camera this is a
+  message signature, not a transaction or fund approval)
+- enter the tracked wallet address and threshold, submit
+- the resulting Telegram deep link / Discord setup code
+- tapping the link (or running `/link <code>`) and confirming in the bot
+- the subscription now showing as active in the dashboard's "my alerts" view
 
 ## Triggering the Alert
 
@@ -58,9 +64,10 @@ Alert message timestamp: TODO
 ## Demo Narration
 
 > Rattlr reads this position's health factor directly from Zest's testnet contracts, on
-> a fixed polling interval. It never asks for a wallet signature and never holds any
-> funds — it only watches public on-chain state and warns the wallet owner before a
-> liquidation happens, not after.
+> a fixed polling interval. The only signature it ever asks for is an off-chain message,
+> used solely to manage your alert subscription — it never asks for transaction approval
+> and never holds any funds. It only watches public on-chain state and warns the wallet
+> owner before a liquidation happens, not after.
 
 ## Final Video
 
